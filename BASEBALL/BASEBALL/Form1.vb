@@ -12,6 +12,9 @@
         Dim contadorPerdio As Integer
 
         Try
+            If txtNombre.Text = "" Then
+                MsgBox("INGRESE UN NOMBRE", vbInformation)
+            End If
             If txtPartidos.Text = "" Then
                 MsgBox("INGRESE VALOR", vbInformation)
             ElseIf Not IsNumeric(txtPartidos.Text) Then
@@ -62,6 +65,10 @@
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        End
+        Dim opcion As DialogResult
+        opcion = MessageBox.Show("¿Desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If opcion = DialogResult.Yes Then
+            Me.Close()
+        End If
     End Sub
 End Class
